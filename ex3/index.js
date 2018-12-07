@@ -16,12 +16,15 @@ var server = http.createServer(function(req,res){
  // gives trimmed path
   var trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
+ // get the query string as an object
+   var queryStringObject = parsedUrl.query;
+
  //get the http method ||park royal hotel||
   var method = req.method.toLowerCase();
  //send response
    res.end('Hello world \n');
  // log the request path
-   console.log("Request has received on path " + trimmedPath + ' with method: '+ method);
+   console.log("Request has received on path " + trimmedPath + ' with method: '+ method + ' with query string ',queryStringObject);
 
 });
 //Start the server and print message on which port server
