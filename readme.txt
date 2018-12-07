@@ -83,3 +83,9 @@ In the "Title" field, add a descriptive label for the new key. For example, if y
 The key fieldPaste your key into the "Key" field.
 The Add key buttonClick Add SSH key.
 Sudo mode dialogIf prompted, confirm your GitHub password.
+
+
+///// to ignore file in git /////////
+-create .gitignore file first
+-edit file above and add <filename>/
+-file name should be without extention
