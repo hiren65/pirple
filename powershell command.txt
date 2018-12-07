@@ -1,0 +1,7 @@
+//for invoke website port for window powershell
+Invoke-WebRequest -UseBasicParsing -Uri http://example.com/
+Invoke-WebRequest -UseBasicParsing -Uri http://localhost:3000
+
+//bash command
+
+curl localhost:3000
