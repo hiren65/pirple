@@ -5,3 +5,6 @@ Invoke-WebRequest -UseBasicParsing -Uri http://localhost:3000
 //bash command
 
 curl localhost:3000
+
+
+//request should be done like localhost:3000/foo?tada=gigo&hpatel=gjgj
