@@ -7,6 +7,7 @@
 var http = require('http');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
+var config  = require('./config');
 
 //createServer calling function with perameters from Dependencies
 //Server should respond to all request with string
@@ -60,6 +61,7 @@ var server = http.createServer(function(req,res){
       payload = typeof(payload) == 'object' ? payload : {} ;
       // convert the payload to string
       var payloadString = JSON.stringify(payload);
+      res.setHeader('Content-Type','application/json');
       //return response
       res.writeHead(statusCode);
       //send response
@@ -78,8 +80,9 @@ var server = http.createServer(function(req,res){
 // listening request
 //request should be done like localhost:3000/foo?tada=gigo&hpatel=gjgj
 //i used Postman a software
-server.listen(3000,function(){
-	console.log('The Server is listeing on port 3000 now');
+//Start the server
+server.listen(config.port,function(){
+	console.log("The Server is listeing on port " + config.port + " in " + config.envName + " mode");
 });
 
 //Define handlers
@@ -92,10 +95,9 @@ handlers.sample = function(data,callback){
 };
 //Not found handlers
 handlers.notFound = function(data,callback){
-    callback(404,{'no':'not fond'});
+    callback(404);
 };
 //Define a request router
 var router = {
-  'sample' : handlers.sample,
-  'no' : handlers.notFound
+  'sample' : handlers.sample
 };
